@@ -92,21 +92,22 @@ st.set_page_config(
              
 #st.image("https://raw.githubusercontent.com/TimothyADavis/KinMSpy/master/kinms/docs/Logo.png",width=200) 
 st.sidebar.title('KinMS kinematics visualiser')
-st.sidebar.header('Telescope Setup')
 
-nxarc=st.sidebar.number_input('Cube size (arcsec)',value=64.,step=1.,key='nx',max_value=120.,min_value=10.)  
-#nyarc=st.sidebar.number_input('Y size (arcsec)',value=64.,step=1.,key='ny')
-nchans=st.sidebar.number_input('Number of channels',value=100,step=1,key='nchans',max_value=200,min_value=5)  
-dv=st.sidebar.number_input('Channel width (km/s)',value=10,step=5,key='dv',max_value=120,min_value=1)  
+#with st.sidebar.expander('Telescope Setup', expanded=False):
+tab1, tab2 = st.sidebar.tabs(["Object Setup","Telescope Setup"])
+with tab2:    
+    nxarc=st.number_input('Cube size (arcsec)',value=64.,step=1.,key='nx',max_value=120.,min_value=10.)  
+    #nyarc=st.sidebar.number_input('Y size (arcsec)',value=64.,step=1.,key='ny')
+    nchans=st.number_input('Number of channels',value=100,step=1,key='nchans',max_value=200,min_value=5)  
+    dv=st.number_input('Channel width (km/s)',value=10,step=5,key='dv',max_value=120,min_value=1)  
+    beam=st.slider('Beamsize (arcsec)', min_value=0.3, max_value=10., value=3.)
 
-beam=st.sidebar.slider('Beamsize (arcsec)', min_value=0.3, max_value=10., value=3.)
+with tab1:
+    pa=st.slider('PA (deg)', min_value=0, max_value=360, value=270)
+    inc=st.slider('Inclination (deg)', min_value=0, max_value=90, value=45)
 
-st.sidebar.header('Object Setup')
-pa=st.sidebar.slider('PA (deg)', min_value=0, max_value=360, value=270)
-inc=st.sidebar.slider('Inclination (deg)', min_value=0, max_value=90, value=45)
-
-distance=st.sidebar.number_input('Distance (Mpc)',value=16.5,step=0.5,key='dist')   
-cellsize=beam/3.
+    distance=st.number_input('Distance (Mpc)',value=16.5,step=0.5,key='dist')   
+    cellsize=beam/3.
 
 
 
