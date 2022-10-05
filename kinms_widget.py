@@ -44,9 +44,6 @@ class model_maker:
         self.n_sbvars = np.sum([i.freeparams for i in self.sb_profile])
         self.n_velvars = np.sum([i.freeparams for i in self.vel_profile])
         
-
-        #st.write(np.concatenate([i.guess for i in self.vel_profile]).ravel())
-
         vrad=velocity_profs.eval(self.vel_profile,self.sbRad,np.concatenate([i.guess for i in self.vel_profile]).ravel(),inc=inc)
         sbprof=sb_profs.eval(self.sb_profile,self.sbRad,np.concatenate([i.guess for i in self.sb_profile]).ravel())
         # myargs={'phaseCent': phasecen}
