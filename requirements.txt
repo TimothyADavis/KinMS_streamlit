@@ -1,5 +1,5 @@
 numpy
 kinms>=3.0.0
 kinms_fitter
-matplotlib
+matplotlib==3.10.8
 astropy	
