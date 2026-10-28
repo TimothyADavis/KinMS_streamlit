@@ -189,7 +189,7 @@ with col2:
                 bestmin=[0.0,0.0,0.0,0.0]
                 bestmax=[0.0,0.0,0.0,0.0]
             if model == 'nfw':
-                bestguess=[12.,100.]
+                bestguess=[12.,2.]
                 bestmin=[0.0,0.0,0.0,0.0]
                 bestmax=[0.0,0.0,0.0,0.0]
             if model == 'sersic':
